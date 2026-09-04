@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kwao Educational Complex | Official Website</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <h2>Kwao Educational Complex</h2>
+            <p>Wisdom and Knowledge</p>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About the School</a>
+            <a href="#admission">Admission</a>
+            <a href="#vacancy">Job Vacancy</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Kwao Educational Complex</h1>
+
+            <p>
+                Building knowledge, developing talents and preparing
+                students for a successful future.
+            </p>
+
+            <a href="#admission" class="btn">Apply for Admission</a>
+            <a href="#vacancy" class="btn secondary-btn">View Job Vacancies</a>
+        </div>
+    </section>
+
+
+    <!-- ABOUT THE SCHOOL -->
+    <section id="about" class="section">
+
+        <h2>About the School</h2>
+
+        <div class="about-container">
+
+            <div class="info-card">
+                <h3>School History</h3>
+                <p>
+                    Kwao Educational Complex is committed to providing
+                    quality education and developing students academically,
+                    morally, socially and creatively.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>Date Established</h3>
+                <p>Please add the official date the school was established.</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Our Directors</h3>
+                <p>
+                    Information about the directors and leadership of
+                    Kwao Educational Complex will be displayed here.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h3>Our Teachers</h3>
+                <p>
+                    Meet our dedicated and professional teaching staff
+                    who support students in their educational journey.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ADMISSION -->
+    <section id="admission" class="section admission-section">
+
+        <h2>Admission for Your Ward</h2>
+
+        <p class="section-description">
+            Complete the admission form below. Your application will be
+            submitted to the school's administration for review.
+        </p>
+
+        <form id="admissionForm">
+
+            <h3>Student Information</h3>
+
+            <label>Student's Full Name</label>
+            <input type="text" id="studentName" required>
+
+            <label>Date of Birth</label>
+            <input type="date" required>
+
+            <label>Gender</label>
+            <select required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <label>Class Applying For</label>
+            <select required>
+                <option value="">Select Class</option>
+                <option>Creche</option>
+                <option>Nursery</option>
+                <option>Kindergarten</option>
+                <option>Primary</option>
+                <option>Junior High School</option>
+            </select>
+
+            <h3>Parent / Guardian Information</h3>
+
+            <label>Parent or Guardian's Name</label>
+            <input type="text" required>
+
+            <label>Phone Number</label>
+            <input type="tel" required>
+
+            <label>Email Address</label>
+            <input type="email">
+
+            <label>Home Address</label>
+            <textarea required></textarea>
+
+            <button type="submit" class="btn">
+                Submit Admission Application
+            </button>
+
+        </form>
+
+        <p id="admissionMessage"></p>
+
+    </section>
+
+
+    <!-- JOB VACANCY -->
+    <section id="vacancy" class="section">
+
+        <h2>Teacher and Staff Job Vacancies</h2>
+
+        <p class="section-description">
+            Interested teachers and qualified staff can submit their
+            applications using the form below.
+        </p>
+
+        <form id="jobForm">
+
+            <label>Full Name</label>
+            <input type="text" required>
+
+            <label>Position Applying For</label>
+            <input type="text" placeholder="Example: Mathematics Teacher" required>
+
+            <label>Phone Number</label>
+            <input type="tel" required>
+
+            <label>Email Address</label>
+            <input type="email" required>
+
+            <label>Years of Experience</label>
+            <input type="number" required>
+
+            <label>Upload Your CV</label>
+            <input type="file" accept=".pdf,.doc,.docx">
+
+            <label>Upload Certificates</label>
+            <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png">
+
+            <label>Additional Information</label>
+            <textarea placeholder="Tell us about your qualifications and experience"></textarea>
+
+            <button type="submit" class="btn">
+                Submit Job Application
+            </button>
+
+        </form>
+
+        <p id="jobMessage"></p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+
+        <h2>Contact Us</h2>
+
+        <p><strong>Kwao Educational Complex</strong></p>
+
+        <p>Ghana</p>
+
+        <p>Phone: Add the official school telephone number</p>
+
+        <p>Email: Add the official school email address</p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>Kwao Educational Complex</h3>
+
+        <p>Wisdom and Knowledge</p>
+
+        <p>
+            © 2026 Kwao Educational Complex.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
