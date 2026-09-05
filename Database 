@@ -1,0 +1,154 @@
+const mongoose = require("mongoose");
+
+/* ========================================
+   ADMISSION DATABASE
+======================================== */
+
+const admissionSchema = new mongoose.Schema(
+    {
+        childName: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+        dateOfBirth: {
+            type: Date,
+            required: true
+        },
+
+        gender: {
+            type: String,
+            required: true
+        },
+
+        classApplyingFor: {
+            type: String,
+            required: true
+        },
+
+        parentName: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+        phoneNumber: {
+            type: String,
+            required: true
+        },
+
+        email: {
+            type: String,
+            trim: true
+        },
+
+        address: {
+            type: String,
+            required: true
+        },
+
+        additionalInformation: {
+            type: String
+        },
+
+        status: {
+            type: String,
+            enum: [
+                "Pending",
+                "Approved",
+                "Rejected"
+            ],
+            default: "Pending"
+        },
+
+        applicationDate: {
+            type: Date,
+            default: Date.now
+        }
+    }
+);
+
+const Admission =
+    mongoose.model(
+        "Admission",
+        admissionSchema
+    );
+
+
+/* ========================================
+   JOB APPLICATION DATABASE
+======================================== */
+
+const jobApplicationSchema =
+    new mongoose.Schema(
+        {
+            fullName: {
+                type: String,
+                required: true,
+                trim: true
+            },
+
+            email: {
+                type: String,
+                required: true,
+                trim: true
+            },
+
+            phoneNumber: {
+                type: String,
+                required: true
+            },
+
+            position: {
+                type: String,
+                required: true
+            },
+
+            qualifications: {
+                type: String,
+                required: true
+            },
+
+            experience: {
+                type: String
+            },
+
+            cvFile: {
+                type: String,
+                required: true
+            },
+
+            status: {
+                type: String,
+                enum: [
+                    "Pending",
+                    "Shortlisted",
+                    "Rejected",
+                    "Accepted"
+                ],
+                default: "Pending"
+            },
+
+            applicationDate: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    );
+
+const JobApplication =
+    mongoose.model(
+        "JobApplication",
+        jobApplicationSchema
+    );
+
+
+/* ========================================
+   EXPORT DATABASE MODELS
+======================================== */
+
+module.exports = {
+    Admission,
+    JobApplication
+};
