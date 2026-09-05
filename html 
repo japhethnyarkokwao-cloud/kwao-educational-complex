@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Kwao Educational Complex | Official Website
+    </title>
+
+    <style>
+
+        /* ==================================
+           GENERAL SETTINGS
+        ================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #0b2340;
+        }
+
+
+        /* ==================================
+           NAVIGATION BAR
+        ================================== */
+
+        header {
+            background: white;
+            padding: 12px 6%;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .nav-logo h2 {
+            font-size: 17px;
+            color: #0b2340;
+        }
+
+        .nav-logo p {
+            color: #ff6b00;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #0b2340;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b00;
+        }
+
+
+        /* ==================================
+           HERO SECTION
+        ================================== */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            overflow: hidden;
+            background: white;
+        }
+
+
+        /* LEFT SIDE */
+
+        .hero-left {
+            width: 38%;
+            background: #0b2340;
+            color: white;
+            padding: 90px 45px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-left::after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            top: 0;
+            width: 180px;
+            height: 100%;
+            background: #ff6b00;
+            transform: skewX(-15deg);
+        }
+
+        .hero-left-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-text {
+            color: #ff6b00;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero-left h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-left h1 span {
+            color: #ff6b00;
+        }
+
+        .hero-left p {
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+
+        /* BUTTONS */
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .btn-orange {
+            background: #ff6b00;
+            color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: #0b2340;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* ==================================
+           RIGHT SIDE
+        ================================== */
+
+        .hero-right {
+            width: 62%;
+            padding: 50px 7%;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.92),
+                    rgba(255,255,255,0.92)
+                ),
+                url("school-building.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .hero-right h3 {
+            color: #ff6b00;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .school-name {
+            font-size: 55px;
+            color: #0b2340;
+            line-height: 1.1;
+        }
+
+        .school-name span {
+            color: #ff6b00;
+            display: block;
+        }
+
+        .motto {
+            color: #ff6b00;
+            font-size: 25px;
+            font-style: italic;
+            margin: 15px 0;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.7;
+            color: #555;
+        }
+
+
+        /* ==================================
+           WEBSITE PREVIEW DESIGN
+        ================================== */
+
+        .website-preview {
+            margin: 30px auto 0;
+            max-width: 700px;
+            background: #151515;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .website-screen {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+        }
+
+        .preview-header img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .preview-menu {
+            display: flex;
+            gap: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .preview-hero {
+            padding: 50px 35px;
+            text-align: left;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(11,35,64,0.78),
+                    rgba(11,35,64,0.78)
+                ),
+                url("school-building.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .preview-hero h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .preview-hero p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .preview-button {
+            display: inline-block;
+            background: #ff6b00;
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+        }
+
+
+        /* ==================================
+           SERVICES SECTION
+        ================================== */
+
+        .services {
+            padding: 70px 6%;
+            text-align: center;
+            background: white;
+        }
+
+        .section-title {
+            display: inline-block;
+            background: #0b2340;
+            color: white;
+            padding: 13px 30px;
+            border-radius: 30px;
+            margin-bottom: 50px;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service-card {
+            width: 210px;
+            padding: 25px 15px;
+        }
+
+        .service-icon {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: #0b2340;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto 20px;
+            font-size: 32px;
+        }
+
+        .orange-icon {
+            background: #ff6b00;
+        }
+
+        .service-card h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* ==================================
+           PURPOSE SECTION
+        ================================== */
+
+        .purpose {
+            background: #ff6b00;
+            padding: 60px 8%;
+            color: #0b2340;
+            text-align: center;
+        }
+
+        .purpose h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .purpose p {
+            max-width: 850px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .purpose strong {
+            color: white;
+        }
+
+
+        /* ==================================
+           FOOTER
+        ================================== */
+
+        footer {
+            background: #071a30;
+            color: white;
+            text-align: center;
+            padding: 40px 8%;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        footer h2 {
+            color: #ff6b00;
+            font-size: 25px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+
+        /* ==================================
+           MOBILE RESPONSIVE DESIGN
+        ================================== */
+
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero-left,
+            .hero-right {
+                width: 100%;
+            }
+
+            .hero-left::after {
+                display: none;
+            }
+
+            .school-name {
+                font-size: 40px;
+            }
+
+            .preview-menu {
+                display: none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <header>
+
+        <nav>
+
+            <div class="nav-logo">
+
+                <img src="logo.png"
+                     alt="Kwao Educational Complex Logo">
+
+                <div>
+
+                    <h2>KWAO EDUCATIONAL COMPLEX</h2>
+
+                    <p>Wisdom and Knowledge</p>
+
+                </div>
+
+            </div>
+
+
+            <ul class="nav-links">
+
+                <li><a href="#home">Home</a></li>
+
+                <li><a href="#about">About Us</a></li>
+
+                <li><a href="#academics">Academics</a></li>
+
+                <li><a href="#admission">Admission</a></li>
+
+                <li><a href="#vacancies">Job Vacancies</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="hero-left">
+
+            <div class="hero-left-content">
+
+                <p class="welcome-text">
+                    WELCOME TO
+                </p>
+
+                <h1>
+
+                    KWAO
+                    <span>EDUCATIONAL</span>
+                    COMPLEX
+
+                </h1>
+
+                <p>
+
+                    Providing a welcoming and supportive
+                    environment where learners can discover,
+                    grow, achieve and prepare for a brighter future.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#about"
+                       class="btn btn-orange">
+
+                        Learn About Our School
+
+                    </a>
+
+
+                    <a href="#admission"
+                       class="btn btn-white">
+
+                        Apply for Admission
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="hero-right">
+
+            <img src="logo.png"
+                 class="hero-logo"
+                 alt="Kwao Educational Complex Logo">
+
+
+            <h3>
+                OFFICIAL WEBSITE
+            </h3>
+
+
+            <h1 class="school-name">
+
+                KWAO
+
+                <span>
+                    EDUCATIONAL COMPLEX
+                </span>
+
+            </h1>
+
+
+            <p class="motto">
+                Wisdom and Knowledge
+            </p>
+
+
+            <p class="hero-description">
+
+                Welcome to the official online platform of
+                Kwao Educational Complex. Learn more about
+                our school, apply for admission for your ward,
+                explore teaching opportunities and stay updated
+                with important school information.
+
+            </p>
+
+
+
+            <!-- WEBSITE PREVIEW -->
+
+            <div class="website-preview">
+
+                <div class="website-screen">
+
+
+                    <div class="preview-header">
+
+                        <img src="logo.png"
+                             alt="School Logo">
+
+
+                        <div class="preview-menu">
+
+                            <span>Home</span>
+                            <span>About Us</span>
+                            <span>Academics</span>
+                            <span>Admission</span>
+                            <span>Vacancies</span>
+                            <span>Contact</span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="preview-hero">
+
+                        <h2>
+
+                            LEARNING FOR TODAY.
+                            PREPARING FOR TOMORROW.
+
+                        </h2>
+
+
+                        <p>
+
+                            Discover Kwao Educational Complex
+                            and everything our school has to offer.
+
+                        </p>
+
+
+                        <a href="#about"
+                           class="preview-button">
+
+                            Explore Our School
+
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- SERVICES -->
+
+    <section class="services">
+
+
+        <h2 class="section-title">
+
+            WHAT YOU CAN DO ON OUR WEBSITE
+
+        </h2>
+
+
+
+        <div class="service-container">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏫
+                </div>
+
+                <h3>
+                    ABOUT OUR SCHOOL
+                </h3>
+
+                <p>
+
+                    Learn about our school,
+                    programmes, facilities,
+                    activities and achievements.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon orange-icon">
+                    📝
+                </div>
+
+                <h3>
+                    APPLY FOR ADMISSION
+                </h3>
+
+                <p>
+
+                    Apply online for admission
+                    for your ward conveniently.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💼
+                </div>
+
+                <h3>
+                    JOB VACANCIES
+                </h3>
+
+                <p>
+
+                    View available teaching
+                    positions and employment
+                    opportunities.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon orange-icon">
+                    📢
+                </div>
+
+                <h3>
+                    NEWS & UPDATES
+                </h3>
+
+                <p>
+
+                    Stay informed about
+                    important school news
+                    and announcements.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📞
+                </div>
+
+                <h3>
+                    CONTACT US
+                </h3>
+
+                <p>
+
+                    Easily contact the school
+                    for enquiries and
+                    further information.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- WEBSITE PURPOSE -->
+
+    <section class="purpose">
+
+        <h2>
+            OUR DIGITAL SCHOOL PLATFORM
+        </h2>
+
+        <p>
+
+            Our official website connects
+            <strong>parents, students, teachers
+            and visitors</strong> with important
+            information and services from
+            Kwao Educational Complex.
+
+            Learn about our school,
+            apply for admission for your ward,
+            explore teacher job vacancies,
+            receive updates and connect with us
+            from anywhere.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+
+
+        <div class="footer-info">
+
+            <p>
+                📍 Kwao Educational Complex
+            </p>
+
+            <p>
+                📞 School Contact Number
+            </p>
+
+            <p>
+                📧 School Email Address
+            </p>
+
+        </div>
+
+
+        <h2>
+
+            Wisdom and Knowledge
+
+        </h2>
+
+
+        <p>
+
+            © 2026 Kwao Educational Complex.
+            All Rights Reserved.
+
+        </p>
+
+
+    </footer>
+
+
+</body>
+
+</html>
