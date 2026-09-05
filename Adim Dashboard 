@@ -1,0 +1,208 @@
+// ========================================
+// KWAO EDUCATIONAL COMPLEX
+// AI SCHOOL ASSISTANT
+// ========================================
+
+
+// Admin gives approved meeting details
+// to the AI assistant.
+
+function sendToSchoolAI() {
+
+    const applicant =
+        document.getElementById(
+            "aiApplicantName"
+        ).value.trim();
+
+    const type =
+        document.getElementById(
+            "aiApplicantType"
+        ).value;
+
+    const date =
+        document.getElementById(
+            "aiMeetingDate"
+        ).value;
+
+    const time =
+        document.getElementById(
+            "aiMeetingTime"
+        ).value;
+
+    const location =
+        document.getElementById(
+            "aiMeetingLocation"
+        ).value.trim();
+
+
+    // Check required information
+
+    if (
+        !applicant ||
+        !date ||
+        !time ||
+        !location
+    ) {
+
+        alert(
+            "Please enter the applicant, date, time and location."
+        );
+
+        return;
+    }
+
+
+    // Convert date into a readable format
+
+    const meetingDate =
+        new Date(date + "T00:00:00");
+
+    const day =
+        meetingDate.toLocaleDateString(
+            "en-US",
+            {
+                weekday: "long"
+            }
+        );
+
+    const formattedDate =
+        meetingDate.toLocaleDateString(
+            "en-US",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    // Convert time
+
+    const timeParts =
+        time.split(":");
+
+    let hour =
+        parseInt(timeParts[0]);
+
+    const minutes =
+        timeParts[1];
+
+    const period =
+        hour >= 12 ? "PM" : "AM";
+
+    hour =
+        hour % 12 || 12;
+
+
+    const formattedTime =
+        `${hour}:${minutes} ${period}`;
+
+
+    // ====================================
+    // AI GENERATED MESSAGE
+    // ====================================
+
+    let message = "";
+
+
+    if (type === "Admission") {
+
+        message =
+            `Dear ${applicant},
+
+Kwao Educational Complex is pleased to inform you that your admission meeting has been scheduled.
+
+📅 Date: ${day}, ${formattedDate}
+🕘 Time: ${formattedTime}
+📍 Location: ${location}
+
+Please arrive on time and bring any required documents.
+
+Thank you.
+
+Kwao Educational Complex
+"Wisdom and Knowledge"`;
+
+    } else {
+
+        message =
+            `Dear ${applicant},
+
+Kwao Educational Complex is pleased to inform you that your job interview has been scheduled.
+
+📅 Date: ${day}, ${formattedDate}
+🕘 Time: ${formattedTime}
+📍 Location: ${location}
+
+Please arrive on time and bring any required documents, including your CV and relevant certificates.
+
+Thank you.
+
+Kwao Educational Complex
+"Wisdom and Knowledge"`;
+    }
+
+
+    // Display AI notification
+
+    document.getElementById(
+        "aiMessage"
+    ).innerText = message;
+
+
+    document.getElementById(
+        "aiNotification"
+    ).style.display = "block";
+
+
+    // Save temporarily for later backend use
+
+    window.currentMeeting = {
+
+        applicant,
+        type,
+        date,
+        time,
+        location,
+        message
+
+    };
+
+}
+
+
+// ========================================
+// SEND NOTIFICATION
+// ========================================
+
+function sendApplicantNotification() {
+
+    if (!window.currentMeeting) {
+
+        alert(
+            "Please schedule a meeting first."
+        );
+
+        return;
+    }
+
+
+    /*
+       Later this function will send the
+       notification through the Node.js
+       backend.
+
+       For now, we display confirmation.
+    */
+
+    alert(
+        "The applicant notification has been prepared successfully."
+    );
+
+
+    console.log(
+        "Applicant notification:",
+        window.currentMeeting
+    );
+
+}
