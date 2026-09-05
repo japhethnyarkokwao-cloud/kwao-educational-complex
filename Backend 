@@ -1,0 +1,444 @@
+// ========================================
+// KWAO EDUCATIONAL COMPLEX
+// BACKEND SERVER
+// ========================================
+
+const express = require("express");
+const mongoose = require("mongoose");
+const multer = require("multer");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const path = require("path");
+
+// Load environment variables
+dotenv.config();
+
+// Create the Express application
+const app = express();
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Serve frontend files
+app.use(express.static("public"));
+
+// ========================================
+// DATABASE CONNECTION
+// ========================================
+
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+        console.log("Connected to MongoDB successfully!");
+    })
+    .catch((error) => {
+        console.error("MongoDB connection error:", error);
+    });
+
+// ========================================
+// ADMISSION APPLICATION DATABASE MODEL
+// ========================================
+
+const admissionSchema = new mongoose.Schema(
+    {
+        childName: {
+            type: String,
+            required: true
+        },
+
+        age: {
+            type: Number,
+            required: true
+        },
+
+        gender: {
+            type: String,
+            required: true
+        },
+
+        classApplyingFor: {
+            type: String,
+            required: true
+        },
+
+        parentName: {
+            type: String,
+            required: true
+        },
+
+        phoneNumber: {
+            type: String,
+            required: true
+        },
+
+        email: {
+            type: String
+        },
+
+        address: {
+            type: String,
+            required: true
+        },
+
+        applicationDate: {
+            type: Date,
+            default: Date.now
+        },
+
+        status: {
+            type: String,
+            default: "Pending"
+        }
+    }
+);
+
+const Admission =
+    mongoose.model("Admission", admissionSchema);
+
+
+// ========================================
+// JOB APPLICATION DATABASE MODEL
+// ========================================
+
+const jobApplicationSchema = new mongoose.Schema(
+    {
+        fullName: {
+            type: String,
+            required: true
+        },
+
+        email: {
+            type: String,
+            required: true
+        },
+
+        phoneNumber: {
+            type: String,
+            required: true
+        },
+
+        position: {
+            type: String,
+            required: true
+        },
+
+        qualifications: {
+            type: String,
+            required: true
+        },
+
+        experience: {
+            type: String
+        },
+
+        cvFile: {
+            type: String
+        },
+
+        applicationDate: {
+            type: Date,
+            default: Date.now
+        },
+
+        status: {
+            type: String,
+            default: "Pending"
+        }
+    }
+);
+
+const JobApplication =
+    mongoose.model(
+        "JobApplication",
+        jobApplicationSchema
+    );
+
+
+// ========================================
+// CV FILE UPLOAD SETTINGS
+// ========================================
+
+const storage = multer.diskStorage(
+    {
+        destination: function (
+            request,
+            file,
+            callback
+        ) {
+            callback(
+                null,
+                "uploads/cvs/"
+            );
+        },
+
+        filename: function (
+            request,
+            file,
+            callback
+        ) {
+            const uniqueName =
+                Date.now() +
+                "-" +
+                file.originalname;
+
+            callback(
+                null,
+                uniqueName
+            );
+        }
+    }
+);
+
+const upload = multer(
+    {
+        storage: storage,
+
+        limits: {
+            fileSize: 5 * 1024 * 1024
+        }
+    }
+);
+
+
+// ========================================
+// ADMISSION APPLICATION ROUTE
+// ========================================
+
+app.post(
+    "/api/admissions",
+
+    async (request, response) => {
+
+        try {
+
+            const admission =
+                new Admission(
+                    {
+                        childName:
+                            request.body.childName,
+
+                        age:
+                            request.body.age,
+
+                        gender:
+                            request.body.gender,
+
+                        classApplyingFor:
+                            request.body.classApplyingFor,
+
+                        parentName:
+                            request.body.parentName,
+
+                        phoneNumber:
+                            request.body.phoneNumber,
+
+                        email:
+                            request.body.email,
+
+                        address:
+                            request.body.address
+                    }
+                );
+
+            await admission.save();
+
+            response.status(201).json(
+                {
+                    success: true,
+
+                    message:
+                        "Admission application submitted successfully.",
+
+                    application:
+                        admission
+                }
+            );
+
+        }
+        catch (error) {
+
+            console.error(error);
+
+            response.status(500).json(
+                {
+                    success: false,
+
+                    message:
+                        "Unable to submit the admission application."
+                }
+            );
+
+        }
+
+    }
+);
+
+
+// ========================================
+// JOB APPLICATION ROUTE
+// ========================================
+
+app.post(
+    "/api/jobs/apply",
+
+    upload.single("cv"),
+
+    async (request, response) => {
+
+        try {
+
+            const jobApplication =
+                new JobApplication(
+                    {
+                        fullName:
+                            request.body.fullName,
+
+                        email:
+                            request.body.email,
+
+                        phoneNumber:
+                            request.body.phoneNumber,
+
+                        position:
+                            request.body.position,
+
+                        qualifications:
+                            request.body.qualifications,
+
+                        experience:
+                            request.body.experience,
+
+                        cvFile:
+                            request.file
+                                ? request.file.path
+                                : null
+                    }
+                );
+
+            await jobApplication.save();
+
+            response.status(201).json(
+                {
+                    success: true,
+
+                    message:
+                        "Job application submitted successfully.",
+
+                    application:
+                        jobApplication
+                }
+            );
+
+        }
+        catch (error) {
+
+            console.error(error);
+
+            response.status(500).json(
+                {
+                    success: false,
+
+                    message:
+                        "Unable to submit the job application."
+                }
+            );
+
+        }
+
+    }
+);
+
+
+// ========================================
+// VIEW ALL ADMISSION APPLICATIONS
+// ========================================
+
+app.get(
+    "/api/admissions",
+
+    async (request, response) => {
+
+        try {
+
+            const applications =
+                await Admission.find()
+                    .sort(
+                        {
+                            applicationDate: -1
+                        }
+                    );
+
+            response.json(applications);
+
+        }
+        catch (error) {
+
+            response.status(500).json(
+                {
+                    message:
+                        "Unable to retrieve applications."
+                }
+            );
+
+        }
+
+    }
+);
+
+
+// ========================================
+// VIEW ALL JOB APPLICATIONS
+// ========================================
+
+app.get(
+    "/api/jobs",
+
+    async (request, response) => {
+
+        try {
+
+            const applications =
+                await JobApplication.find()
+                    .sort(
+                        {
+                            applicationDate: -1
+                        }
+                    );
+
+            response.json(applications);
+
+        }
+        catch (error) {
+
+            response.status(500).json(
+                {
+                    message:
+                        "Unable to retrieve job applications."
+                }
+            );
+
+        }
+
+    }
+);
+
+
+// ========================================
+// START SERVER
+// ========================================
+
+const PORT =
+    process.env.PORT || 3000;
+
+app.listen(
+    PORT,
+
+    () => {
+
+        console.log(
+            `Server running on port ${PORT}`
+        );
+
+    }
+);
