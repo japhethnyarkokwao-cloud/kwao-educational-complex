@@ -1,0 +1,558 @@
+/* =========================================
+   KWAO EDUCATIONAL COMPLEX
+   OFFICIAL WEBSITE STYLESHEET
+========================================= */
+
+
+/* =========================================
+   GENERAL SETTINGS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #0b2340;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   NAVIGATION BAR
+========================================= */
+
+header {
+    background-color: white;
+    padding: 12px 6%;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.10);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.nav-logo h2 {
+    font-size: 17px;
+    color: #0b2340;
+}
+
+.nav-logo p {
+    color: #ff6b00;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 22px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0b2340;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6b00;
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    overflow: hidden;
+    background-color: white;
+}
+
+
+/* =========================================
+   HERO LEFT SIDE
+========================================= */
+
+.hero-left {
+    width: 38%;
+    background-color: #0b2340;
+    color: white;
+    padding: 90px 45px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero-left::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    top: 0;
+    width: 180px;
+    height: 100%;
+    background-color: #ff6b00;
+    transform: skewX(-15deg);
+}
+
+.hero-left-content {
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-text {
+    color: #ff6b00;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero-left h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-left h1 span {
+    color: #ff6b00;
+}
+
+.hero-left p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   WEBSITE BUTTONS
+========================================= */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 22px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-orange {
+    background-color: #ff6b00;
+    color: white;
+}
+
+.btn-white {
+    background-color: white;
+    color: #0b2340;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   HERO RIGHT SIDE
+========================================= */
+
+.hero-right {
+    width: 62%;
+    padding: 50px 7%;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.92),
+            rgba(255, 255, 255, 0.92)
+        ),
+        url("school-building.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.hero-right h3 {
+    color: #ff6b00;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.school-name {
+    font-size: 55px;
+    color: #0b2340;
+    line-height: 1.1;
+}
+
+.school-name span {
+    color: #ff6b00;
+    display: block;
+}
+
+.motto {
+    color: #ff6b00;
+    font-size: 25px;
+    font-style: italic;
+    margin: 15px 0;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+    color: #555;
+}
+
+
+/* =========================================
+   WEBSITE PREVIEW
+========================================= */
+
+.website-preview {
+    margin: 30px auto 0;
+    max-width: 700px;
+    background-color: #151515;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.30);
+}
+
+.website-screen {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+.preview-header img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.preview-menu {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.preview-hero {
+    padding: 50px 35px;
+    text-align: left;
+    color: white;
+
+    background:
+        linear-gradient(
+            rgba(11, 35, 64, 0.78),
+            rgba(11, 35, 64, 0.78)
+        ),
+        url("school-building.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.preview-hero h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.preview-hero p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.preview-button {
+    display: inline-block;
+    background-color: #ff6b00;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.preview-button:hover {
+    background-color: #0b2340;
+}
+
+
+/* =========================================
+   SERVICES SECTION
+========================================= */
+
+.services {
+    padding: 70px 6%;
+    text-align: center;
+    background-color: white;
+}
+
+.section-title {
+    display: inline-block;
+    background-color: #0b2340;
+    color: white;
+    padding: 13px 30px;
+    border-radius: 30px;
+    margin-bottom: 50px;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-card {
+    width: 210px;
+    padding: 25px 15px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+}
+
+.service-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #0b2340;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 20px;
+    font-size: 32px;
+}
+
+.orange-icon {
+    background-color: #ff6b00;
+}
+
+.service-card h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   WEBSITE PURPOSE SECTION
+========================================= */
+
+.purpose {
+    background-color: #ff6b00;
+    padding: 60px 8%;
+    color: #0b2340;
+    text-align: center;
+}
+
+.purpose h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.purpose p {
+    max-width: 850px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.purpose strong {
+    color: white;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background-color: #071a30;
+    color: white;
+    text-align: center;
+    padding: 40px 8%;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+footer h2 {
+    color: #ff6b00;
+    font-size: 25px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   MOBILE AND TABLET DESIGN
+========================================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-left::after {
+        display: none;
+    }
+
+    .hero-left {
+        padding: 70px 30px;
+    }
+
+    .school-name {
+        font-size: 40px;
+    }
+
+    .preview-menu {
+        display: none;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE PHONES
+========================================= */
+
+@media (max-width: 500px) {
+
+    header {
+        padding: 12px 4%;
+    }
+
+    .nav-logo h2 {
+        font-size: 14px;
+    }
+
+    .nav-links {
+        font-size: 13px;
+    }
+
+    .hero-left h1 {
+        font-size: 38px;
+    }
+
+    .hero-right {
+        padding: 40px 20px;
+    }
+
+    .school-name {
+        font-size: 34px;
+    }
+
+    .motto {
+        font-size: 20px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .website-preview {
+        padding: 8px;
+    }
+
+    .preview-hero {
+        padding: 35px 20px;
+    }
+
+    .preview-hero h2 {
+        font-size: 22px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .purpose h2 {
+        font-size: 28px;
+    }
+
+    .purpose p {
+        font-size: 16px;
+    }
+
+}
